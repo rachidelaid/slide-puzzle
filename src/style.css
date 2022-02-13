@@ -1,3 +1,52 @@
+:root {
+  --bg-image: '';
+}
+
 body {
-  background-color: bisque;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+.slides-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  width: 470px;
+  height: 470px;
+  border: 5px solid #333;
+  position: relative;
+  background-image: var(--bg-image);
+}
+
+.slides-wrapper::before {
+  position: absolute;
+  display: block;
+  width: 470px;
+  height: 470px;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 99;
+  top: 0;
+  left: 0;
+  content: '';
+}
+
+.slide {
+  width: 155px;
+  height: 155px;
+  border: 1px solid #333;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.slide::before {
+  display: block;
+  width: 155px;
+  height: 155px;
+  z-index: 99;
+  top: 0;
+  left: 0;
+  content: '';
+  background-image: var(--bg-image);
 }
