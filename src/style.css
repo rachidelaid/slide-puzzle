@@ -38,10 +38,12 @@ body {
   border: 1px solid #333;
   z-index: 999;
   background-color: #fff;
+  position: relative;
+  cursor: pointer;
 }
 
-.slide::before {
-  display: block;
+.slide .content {
+  position: absolute;
   width: 155px;
   height: 155px;
   z-index: 99;
@@ -49,4 +51,12 @@ body {
   left: 0;
   content: '';
   background-image: var(--bg-image);
+}
+
+.empty {
+  background: transparent;
+}
+
+.empty .content {
+  display: none;
 }
