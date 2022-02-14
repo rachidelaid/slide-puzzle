@@ -2,6 +2,8 @@ import './style.css';
 import getImage from './modules/getImage.js';
 const perfectBoard =
   '[{"x":0,"y":0},{"x":0,"y":1},{"x":0,"y":2},{"x":1,"y":0},{"x":1,"y":1},{"x":1,"y":2},{"x":2,"y":0},{"x":2,"y":1},0]';
+const solution = ['13', '042', '15', '064', '3157', '284', '37', '468', '75'];
+
 const wrapper = document.querySelector('.slides-wrapper');
 const slides = [...wrapper.querySelectorAll('.slide .content')];
 
@@ -48,8 +50,7 @@ const start = async () => {
     { x: 2, y: 1 },
   ];
 
-  // board = list.sort(() => Math.random() - 0.5);
-  board = list;
+  board = list.sort(() => Math.random() - 0.5);
   refreshSlides();
 };
 
@@ -65,12 +66,7 @@ const moveSlide = (posi) => {
     }
   });
 
-  if (
-    emptyIndex === posiIndex - 1 ||
-    emptyIndex === posiIndex + 1 ||
-    emptyIndex === posiIndex - 3 ||
-    emptyIndex === posiIndex + 3
-  ) {
+  if (solution[emptyIndex].includes(posiIndex)) {
     board[emptyIndex] = posi;
     board[posiIndex] = 0;
   }
