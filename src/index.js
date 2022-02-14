@@ -46,8 +46,8 @@ const start = async () => {
     { x: 1, y: 1 },
     { x: 1, y: 2 },
     { x: 2, y: 0 },
-    0,
     { x: 2, y: 1 },
+    0,
   ];
 
   board = list.sort(() => Math.random() - 0.5);

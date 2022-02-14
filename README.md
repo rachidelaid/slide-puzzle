@@ -1,27 +1,32 @@
-# Webpack Boilerplate
+# Slide Puzzle
 
-A basic webpack boilerplate, ready to be used immediately, no configuration needed. It doesn't tell you, which framework or library you should be using, it contains only a handful of modules:
+this is simple slide puzzle build built using images from a free [pokemon api](https://pokeapi.co/). if you want to try click on the live link bellow.
+
+![screenshot](./screenshot.gif)
+
+## Built With
 
 - Webpack
-- html-webpack-plugin
-- css-loader
-- style-loader
-- webpack-dev-server
+- HTML
+- CSS
+- JAVASCRIPT
 
-Everything else is up to you.
+## Live Link
+
+[Demo Link](https://js-slide-puzzle.netlify.app/)
 
 ## Usage
 
 start by cloning this repository by running:
 
 ```
-git clone https://github.com/rachidelaid/webpack-boilerplate.git
+git clone https://github.com/rachidelaid/slide-puzzle.git
 ```
 
 cd to the folder
 
 ```
-cd webpack-boilerplate
+cd slide-puzzle
 ```
 
 run this command to install all the packages needed
