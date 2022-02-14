@@ -1,10 +1,17 @@
 import './style.css';
 import getImage from './modules/getImage.js';
-
+const perfectBoard =
+  '[{"x":0,"y":0},{"x":0,"y":1},{"x":0,"y":2},{"x":1,"y":0},{"x":1,"y":1},{"x":1,"y":2},{"x":2,"y":0},{"x":2,"y":1},0]';
 const wrapper = document.querySelector('.slides-wrapper');
 const slides = [...wrapper.querySelectorAll('.slide .content')];
 
 let board;
+
+const checkWin = () => {
+  if (JSON.stringify(board) === perfectBoard) {
+    document.querySelector('.modal').classList.remove('hide');
+  }
+};
 
 const refreshSlides = () => {
   board.forEach((posi, i) => {
@@ -23,6 +30,8 @@ const refreshSlides = () => {
 };
 
 const start = async () => {
+  document.querySelector('.modal').classList.add('hide');
+
   const imageLink = await getImage();
 
   document.body.style.setProperty('--bg-image', `url(${imageLink})`);
@@ -35,12 +44,12 @@ const start = async () => {
     { x: 1, y: 1 },
     { x: 1, y: 2 },
     { x: 2, y: 0 },
-    { x: 2, y: 1 },
     0,
+    { x: 2, y: 1 },
   ];
 
-  // const arr = list;
-  board = list.sort(() => Math.random() - 0.5);
+  // board = list.sort(() => Math.random() - 0.5);
+  board = list;
   refreshSlides();
 };
 
@@ -72,7 +81,10 @@ slides.forEach((btn) => {
     const posi = { x: +btn.dataset.x, y: +btn.dataset.y };
     moveSlide(posi);
     refreshSlides();
+    checkWin();
   });
 });
+
+document.querySelector('button').addEventListener('click', start);
 
 start();
